@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: "JukBox",
-    home: HomePage(),
-  ));
+  runApp(MyApp());
 }
 
-class HomePage extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Awesome App By Ayush"),
+    return MaterialApp(
+      home: Material(
+        child: Center(
+          child: Container(
+            child: Text("Welcome to my New app"),
+          ),
         ),
-        body: Container(
-          child: Center(child: Text("Hi this is Ayush First App")),
-        ));
+      ),
+    );
   }
 }
