@@ -1,4 +1,5 @@
-import 'package:awesom/Home_page.dart';
+import 'package:awesom/Pages/Home_page.dart';
+import 'package:awesom/Pages/Login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      // home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+      },
     );
   }
 }
