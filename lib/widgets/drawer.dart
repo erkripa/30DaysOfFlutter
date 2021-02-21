@@ -1,5 +1,3 @@
-import 'package:awesom/Pages/Login_page.dart';
-import 'package:awesom/uTils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
