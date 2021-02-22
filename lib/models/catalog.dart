@@ -1,4 +1,4 @@
-class item {
+class Item {
   final String id;
   final String name;
   final String desc;
@@ -6,11 +6,11 @@ class item {
   final String color;
   final String image;
 
-  item({this.id, this.name, this.desc, this.price, this.color, this.image});
+  Item({this.id, this.name, this.desc, this.price, this.color, this.image});
 }
 
 final products = [
-  item(
+  Item(
     id: "Ayush098",
     name: "iphone 12 pro",
     desc: "Apple iphone 12 generation",
