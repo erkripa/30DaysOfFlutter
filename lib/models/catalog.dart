@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class CatalogModel {
+class CatalogModel { 
   static List<Item> items; //= [
   //   Item(
   //     id: 1,
