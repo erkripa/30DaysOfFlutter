@@ -1,6 +1,5 @@
 import 'package:awesom/Pages/home_details.dart';
 import 'package:awesom/models/catalog.dart';
-import 'package:awesom/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -45,19 +44,14 @@ class CatalogItem extends StatelessWidget {
         children: [
           Hero(
             tag: Key(catalog.id.toString()),
-            child: CatalogImage(
-              image: catalog.image,
-            ),
+            child: CatalogImage(image: catalog.image),
           ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.text.lg
-                    .color(MyTheme.darkbluciesColor)
-                    .bold
-                    .make(),
+                catalog.name.text.lg.color(context.accentColor).bold.make(),
                 catalog.desc.text.textStyle(context.captionStyle).make(),
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
@@ -66,6 +60,8 @@ class CatalogItem extends StatelessWidget {
                     ElevatedButton(
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(StadiumBorder()),
+                        backgroundColor: MaterialStateProperty.all(
+                            context.theme.buttonColor),
                       ),
                       onPressed: () {},
                       child: "Add to cart".text.bold.sm.make(),
@@ -77,6 +73,6 @@ class CatalogItem extends StatelessWidget {
           ),
         ],
       ),
-    ).white.square(140).rounded.make().p16();
+    ).color(context.cardColor).square(140).rounded.make().p16();
   }
 }

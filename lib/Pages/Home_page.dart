@@ -2,7 +2,6 @@ import 'package:awesom/models/catalog.dart';
 import 'package:awesom/uTils/routes.dart';
 import 'package:awesom/widgets/home_widgets/catalog_header.dart';
 import 'package:awesom/widgets/home_widgets/catalog_list.dart';
-import 'package:awesom/widgets/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,11 +41,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
-        child: Icon(
-          CupertinoIcons.cart,
-        ),
+        backgroundColor: context.theme.buttonColor,
+        child: Icon(CupertinoIcons.cart, color: Colors.white),
         onPressed: () {
           Navigator.pushNamed(context, MyRoutes.cartRoute);
         },

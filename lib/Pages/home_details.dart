@@ -1,5 +1,4 @@
 import 'package:awesom/models/catalog.dart';
-import 'package:awesom/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -13,12 +12,12 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -26,10 +25,12 @@ class HomeDetailPage extends StatelessWidget {
             ElevatedButton(
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(StadiumBorder()),
+                backgroundColor:
+                    MaterialStateProperty.all(context.theme.buttonColor),
               ),
               onPressed: () {},
-              child: "Buy".text.xl.bold.make(),
-            ).wh(100, 40)
+              child: "Add to Cart".text.xl.bold.make(),
+            ).wh(120, 40)
           ],
         ).p24(),
       ),
@@ -47,12 +48,12 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
-                          .color(MyTheme.darkbluciesColor)
+                          .color(context.accentColor)
                           .bold
                           .make(),
                       catalog.desc.text.lg
