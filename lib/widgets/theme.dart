@@ -28,12 +28,16 @@ class MyTheme {
         canvasColor: darkCreamColor,
         buttonColor: lightBluciesColor,
         accentColor: Colors.white,
-        backgroundColor:bgdarkColor,
+        backgroundColor: bgdarkColor,
         appBarTheme: AppBarTheme(
           color: Colors.black,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.white),
-          textTheme: Theme.of(context).textTheme,
+          textTheme: Theme.of(context).textTheme.copyWith(
+                headline6: context.textTheme.headline6.copyWith(
+                  color: Colors.white,
+                ),
+              ),
         ),
       );
 
@@ -41,8 +45,6 @@ class MyTheme {
   static Color darkCreamColor = Vx.gray900;
   static Color darkbluciesColor = Color(0xff403b58);
   static Color lightBluciesColor = Vx.indigo500;
-  static Color bgdarkColor =  Vx.gray900;
-  static Color bgLightColor =  Colors.white;
-
-
+  static Color bgdarkColor = Vx.gray900;
+  static Color bgLightColor = Colors.white;
 }
