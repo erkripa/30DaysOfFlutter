@@ -1,6 +1,13 @@
 import 'package:awesom/models/catalog.dart';
 
 class CartModel {
+//Singlaton calasses
+
+  static final cartModel = CartModel.internal();
+  CartModel.internal();
+
+  factory CartModel() => cartModel;
+
 // CataLog Fields
   CatalogModel _catalog;
 
@@ -19,7 +26,8 @@ class CartModel {
 
   List<Item> get items => _itemIds.map((id) => _catalog.getById(id)).toList();
 
-  num get totalPrice => items.fold(0, (total, current) => current.price);
+  num get totalPrice =>
+      items.fold(0, (total, current) => total + current.price);
 
   // Add items
   void add(Item item) {

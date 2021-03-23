@@ -1,4 +1,5 @@
 import 'package:awesom/Pages/home_details.dart';
+import 'package:awesom/models/cart.dart';
 import 'package:awesom/models/catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -57,15 +58,7 @@ class CatalogItem extends StatelessWidget {
                   alignment: MainAxisAlignment.spaceBetween,
                   children: [
                     "\$${catalog.price}".text.lg.bold.make(),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(StadiumBorder()),
-                        backgroundColor: MaterialStateProperty.all(
-                            context.theme.buttonColor),
-                      ),
-                      onPressed: () {},
-                      child: "Add to cart".text.bold.sm.make(),
-                    )
+                    _AddToCart(catalog: catalog)
                   ],
                 ),
               ],
@@ -74,5 +67,42 @@ class CatalogItem extends StatelessWidget {
         ],
       ),
     ).color(context.cardColor).square(140).rounded.make().p16();
+  }
+}
+
+///This is own maked Widget self Made
+class _AddToCart extends StatefulWidget {
+  final Item catalog;
+
+  const _AddToCart({
+    Key key,
+    this.catalog,
+  }) : super(key: key);
+
+  @override
+  __AddToCartState createState() => __AddToCartState();
+}
+
+class __AddToCartState extends State<_AddToCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all(StadiumBorder()),
+        backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+      ),
+      onPressed: () {
+        isAdded = isAdded.toggle();
+
+        final _catalog = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = _catalog;
+        _cart.add(widget.catalog);
+
+        setState(() {});
+      },
+      child: isAdded ? Icon(Icons.done) : "Add to cart".text.bold.sm.make(),
+    );
   }
 }
