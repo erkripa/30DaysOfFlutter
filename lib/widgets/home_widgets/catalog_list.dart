@@ -1,5 +1,4 @@
 import 'package:awesom/Pages/home_details.dart';
-import 'package:awesom/models/cart.dart';
 import 'package:awesom/models/catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';

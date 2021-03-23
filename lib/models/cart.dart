@@ -1,12 +1,14 @@
 import 'package:awesom/models/catalog.dart';
 
 class CartModel {
-//Singlaton calasses
+  /*
+      //Singlaton calasses
 
-  static final cartModel = CartModel.internal();
-  CartModel.internal();
+        static final cartModel = CartModel.internal();
+        CartModel.internal();
 
-  factory CartModel() => cartModel;
+        factory CartModel() => cartModel;
+*/
 
 // CataLog Fields
   CatalogModel _catalog;

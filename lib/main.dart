@@ -1,14 +1,21 @@
 import 'package:awesom/Pages/Home_page.dart';
 import 'package:awesom/Pages/Login_page.dart';
 import 'package:awesom/Pages/cart_page.dart';
+import 'package:awesom/core/store.dart';
 import 'package:awesom/uTils/routes.dart';
 import 'package:awesom/widgets/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 // We learned About Context,and Constraints.
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    VxState(
+      store: MyStore(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
